@@ -1,0 +1,20 @@
+<head><body>
+<script>
+Array.prototype.random = function () {
+  return this[Math.floor((Math.random()*this.length))];
+};
+
+function generate(){
+  var item = "";
+  var group = ["w","s","m"].random();
+  return group;
+};
+
+function update(){
+    document.getElementById("item").innerHTML = generate();
+};
+update();
+</script>
+<p id="item"></p>
+<button onclick = "update()"></button>
+</body></head>
