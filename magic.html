@@ -13,8 +13,8 @@ function generate(){
 function update(){
     document.getElementById("item").innerHTML = generate();
 };
-update();
 </script>
-<p id="item"></p>
-<button onclick = "update()"></button>
+  
+<p id="item" onload = "update()"></p>
+<button onclick = "update()">Generate new item</button>
 </body></head>
