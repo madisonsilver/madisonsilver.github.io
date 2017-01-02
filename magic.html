@@ -7,21 +7,46 @@ Array.prototype.random = function () {
 function getAbility(tier, type){
    var skills = {
                 "w":{
-                     "1":["Threat", "Hack", "Gladiator Skills", "Duel", "Defy Death", "Brace", "Awaken", "Knockback", "Improved Strength" "Jumpstart Heal", "Might Strike"], 
-                     "2":["Magic Resistance (Missile)", "Missile Weapon Resistance", "Dueling Techniques", "Bow Out", "Tumble", "Unbreachability", "Triumph", "Giant Strength", "Spell Turning Weapons", "Remove Charm & Resist Mental Effects"]
+                     "1":[["Threat", "Hack", "Gladiator Skills"], 
+                          ["Duel", "Defy Death"], 
+                          ["Brace", "Awaken"],
+                          ["Knockback", "Improved Strength"], 
+                          ["Jumpstart Heal", "Might Strike"]], 
+                     "2":[["Magic Resistance (Missile)", "Missile Weapon Resistance"], 
+                          ["Dueling Techniques", "Bow Out"], 
+                          ["Tumble", "Unbreachability"], 
+                          ["Triumph", "Giant Strength"], 
+                          ["Spell Turning Weapons", "Remove Charm & Resist Mental Effects"]]
                     }, 
                  
                  "s":{
-                     "1":["Martial Arts", "Acrobatics", "Hitman", "Throwing Training", "Impale"],
-                     "2":[]
+                     "1":[["Martial Arts", "Acrobatics", "Hitman"], 
+                          ["Throwing Training", "Impale", "Swimming", "Skill Share"], 
+                          ["Disarm", "Multi-Shot & Archery Training"], 
+                          ["Unglue", "Hide"], 
+                          ["Endure", "Snare", "Scouting"]],
+                     "2":[["Weapons Mastery", "Slay", "Careful Planning"], 
+                          ["Flying", "Whirlwind Aura"], 
+                          ["Crit Elite", "Accuracy", "Reflexes"], 
+                          ["Disable", "Stealth & Backstab", "Lie"], 
+                          ["Spell Turning Weapons", "Avoid", "Species Lore", "Hunting Party"]]
                  }, 
                  
                  
                  "m":{
-                     "1":[],
-                     "2":[]
+                     "1":[["Flame Ray", "Fireball"], 
+                          ["Lightning Ray", "Ice Ball"], 
+                          ["Light Ray", "Medicine Ball"], 
+                          ["Death Ray", "Terror Ball", "Spirit Guide"], 
+                          ["Empathic Ray", "Treeform Ball"]],
+                     "2":[["Crown of Flame", "Self-Detonate", "Bellows", "Melting Grasp", "Flame Control & Resistance"], 
+                          ["Crown of Ice", "Teleport", "Spell Trigger", "Dispel Magic", "Effects Resistance"], 
+                          ["Crown of Light", "Cure Disease/Mental Illness & Healing Touch", "Ward", "Rebirth", "Blessing"], 
+                          ["Crown of Fear", "Spirit Bury", "Etherial Travel Ritual", "Zombify Touch", "Pact"], 
+                          ["Crown of Vines", "Polymorph", "Regeneration Touch", "Wildborn", "Unforge"]]
                  }
-                 }
+   };
+  return skills.type.tier.random.().random()
 };
   
 function generate(){
