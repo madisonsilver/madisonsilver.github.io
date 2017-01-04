@@ -3,7 +3,13 @@
 Array.prototype.random = function () {
   return this[Math.floor((Math.random()*this.length))];
 };
-
+  
+function getRandomInt(min, max) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min)) + min;
+};
+  
 function getAbility(tier, type){
    var skills = {
                 "w":{
@@ -55,7 +61,7 @@ function generate(){
   var power = 0;
   var complexity = 0;
   
-  var maxtier = Math.random(1,3);
+  var maxtier = getRandomInt(1,3);
   
   return group;
 };
