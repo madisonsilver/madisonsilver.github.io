@@ -69,7 +69,7 @@ function generate(){
   while (complexity < 5){
       var tier = getRandomInt(1, maxtier+1);
       complexity = complexity + 1;
-      item = item + getAbility(tier, group) + "\\n";
+      item = item + getAbility(tier, group) + "<BR/>"; //fix this if it doesn't work
       power = power + 1
   };
   return item;
