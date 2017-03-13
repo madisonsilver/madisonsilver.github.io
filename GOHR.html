@@ -29,11 +29,10 @@ function setupTeam1(){
 	}
 	document.getElementById("playField").write(fieldContents);
 }
-setup();
 </script>
 </head>
 <body>
-<div id="playField"></div>
+<div id="playField" onload="setup();"></div>
 <div id="playLog"></div>
 </body>
 </html>
