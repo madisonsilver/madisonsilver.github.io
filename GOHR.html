@@ -1,10 +1,6 @@
 <html>
 <head>
 <script>
-var log = "";
-var characters = [Character("1/1","1","11"), Character("1/2","1","12"), Character("2/1","2","21"), Character("2/2","2","22")];
-var team1 = [];
-var team2 = [];
 class Character {
 	constructor(name, group, id) {
 		this.name = name;
@@ -12,6 +8,12 @@ class Character {
 		this.epithet = epithet;
 	}
 }
+	
+var log = "";
+var characters = [Character("1/1","1","11"), Character("1/2","1","12"), Character("2/1","2","21"), Character("2/2","2","22")];
+var team1 = [];
+var team2 = [];
+
 
 function setup(){
 	team1 = [];
