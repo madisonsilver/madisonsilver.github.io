@@ -1,1 +1,19 @@
-<html><body><img src="216.58.192.0"></body></html>
+<html>
+  <head>
+    <script>
+      core = document.getElementById("core");
+      for (var i=0;i<256;i++){
+          for (var j=0;j<256;j++){
+              for (var k=0;k<256;k++){
+                for (var l=0;l<256;l++){
+                    core.innerHtml += '<img src="' + i + "." + j + "." + k + "." + l + "." + '">'
+                 }
+              }
+          }
+      }
+    </script>
+  </head>
+  <body>
+    <div id="core"></div>
+  </body>
+</html>
