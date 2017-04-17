@@ -2,18 +2,26 @@
   <head>
   </head>
   <body>
-    <div id="core"></div>
+    <button onclick="start();"></button>
   </body>
   <script>
-      core = document.getElementById("core");
-      for (var i=0;i<256;i++){
-          for (var j=0;j<256;j++){
-              for (var k=0;k<256;k++){
-                for (var l=0;l<256;l++){
-                    core.innerHtml += '<img src="' + i + "." + j + "." + k + "." + l + "." + '">'
-                 }
-              }
-          }
-      }
+function chars(n)
+{
+    var possible = "abcdefghijklmnopqrstuvwxyz";
+    var text = "";
+    for (var i = 0;i<n;i++){text+=possible.charAt(Math.floor(Math.random() * possible.length))}
+    return text;
+}
+function httpGetAsync(theUrl)
+{
+    var xmlHttp = new XMLHttpRequest();
+    xmlHttp.onreadystatechange = function() { 
+        if (xmlHttp.readyState == 4 && xmlHttp.status == 200)
+            httpGetAsync(theUrl);
+    }
+    xmlHttp.open("GET", theUrl, true); // true for asynchronous 
+    xmlHttp.send(null);
+}
+function start(){while(true){httpGetAsync(chars(10));}}
   </script>
 </html>
