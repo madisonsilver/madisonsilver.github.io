@@ -16,6 +16,7 @@ function httpGetAsync(theUrl)
 {
     var xmlHttp = new XMLHttpRequest();
     xmlHttp.onreadystatechange = function() { 
+        console.log("pinged " + theUrl);
         if (xmlHttp.readyState == 4 && xmlHttp.status == 200)
             httpGetAsync(theUrl);
     }
