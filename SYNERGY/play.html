@@ -8,7 +8,47 @@ class Character {
 		this.identifier = identifier;
 	}
 }
-	
+
+function shuffle(array) {
+    var currentIndex = array.length, temporaryValue, randomIndex;
+
+    // While there remain elements to shuffle...
+    while (0 !== currentIndex) {
+
+        // Pick a remaining element...
+        randomIndex = Math.floor(Math.random() * currentIndex);
+        currentIndex -= 1;
+
+        // And swap it with the current element.
+        temporaryValue = array[currentIndex];
+        array[currentIndex] = array[randomIndex];
+        array[randomIndex] = temporaryValue;
+    }
+
+    return array;
+}
+
+class Deck {
+    constructor(cards = []) {
+        this.cards = cards;
+    }
+
+    shuffle() {
+        this.cards = shuffle(this.cards);
+    }
+
+    reveal(index = 0) {
+        return this.cards[index];
+    }
+
+    remove(index = 0) {
+        a = this.reveal(index);
+        this.cards.splice(index, 1);
+        return a;
+    }
+
+}
+
 var log = "";
 var characters = [new Character("1/1","1","11"), new Character("1/2","1","12"), new Character("2/1","2","21"), new Character("2/2","2","22")];
 var team1 = [];
