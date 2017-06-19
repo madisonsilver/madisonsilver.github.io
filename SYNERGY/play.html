@@ -76,9 +76,8 @@ function setup(){
 	setupTeam1();
 }
 function setupTeam1(){
-	var temp = [];
-	for (var i = 0; i < characters.length; i++){ //TODO: Fix this
-		add("button", i, function(){console.log(i);}, "playField")
+	for (var i = 0; i < characters.length; i++){
+		add("button", i, function(a){return function(){console.log(a);}}(i), "playField") //TODO figure out how to do this correctly 'cause this ain't it
 	}
 }
 
