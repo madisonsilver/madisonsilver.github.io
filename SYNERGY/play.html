@@ -9,7 +9,7 @@ class Character {
 	}
 }
 
-function shuffle(array) {
+function shuffle(array) { //TODO: I'm pretty sure I don't need this?  Why did I put it in?
     var currentIndex = array.length, temporaryValue, randomIndex;
 
     // While there remain elements to shuffle...
@@ -47,14 +47,27 @@ class Deck {
         return a;
     }
 
-}
+} //TODO: I'm pretty sure I don't need this?  Why did I put it in?
 
 var log = "";
 var characters = [new Character("1/1","1","11"), new Character("1/2","1","12"), new Character("2/1","2","21"), new Character("2/2","2","22")];
 var team1 = [];
 var team2 = [];
 
+function add(type, clickEvent, location) { //stolen from https://stackoverflow.com/questions/7707074/creating-dynamic-button-with-click-event-in-javascript I have no regrets
+  //Create an input type dynamically.   
+  var element = document.createElement("input");
+  //Assign different attributes to the element. 
+  element.type = type;
+  element.value = type;
+  element.name = type;
+  element.onclick = clickEvent; //TODO: Replace with addEventListener?
 
+  var foo = document.getElementById(location); //TODO: Figure out where I want to put this thing
+  //Append the element in page (in span).  
+  foo.appendChild(element);
+}
+	
 function setup(){
 	team1 = [];
 	team2 = [];
@@ -63,17 +76,16 @@ function setup(){
 	setupTeam1();
 }
 function setupTeam1(){
-	var fieldContents = "Choose player 1's team";
+	document.getElementById("playField").write("Choose player 1's team");
 	var temp = [];
-	for (var i = 0; i < characters.length; i++){
-		fieldContents += '<button>'+characters[i].name+'</button>'
+	for (var i = 0; i < characters.length; i++){ //TODO: Fix this
+		add("button", function(){console.log("BEEP!");}, "playField")
 	}
-	document.getElementById("playField").write(fieldContents);
 }
 </script>
 </head>
 <body>
-<div id="playField" onload="setup();"></div>
+<div id="playField" onload="setup();"></div> <!-- TODO: Figure out if this actually works. -->
 <div id="playLog"></div>
 </body>
 </html>
