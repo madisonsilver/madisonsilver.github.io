@@ -81,10 +81,14 @@ function setupTeam1(){
 		add("button", function(){console.log("BEEP!");}, "playField")
 	}
 }
+
+window.onload = function() {
+	 setup();
+}
 </script>
 </head>
 <body>
-<div id="playField" onload="setup();"></div> <!-- TODO: Figure out if this actually works. -->
+<div id="playField"></div> <!-- TODO: Figure out if this actually works. -->
 <div id="playLog"></div>
 </body>
 </html>
