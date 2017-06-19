@@ -38,7 +38,11 @@ function setup(){
 }
 function setupTeam1(){
 	for (var i = 0; i < characters.length; i++){
-		add("button", characters[i].title, function(a){return function(){console.log(a.group);}}(characters[i]), "playField") 
+		add("button", characters[i].title, function(char){
+			return function(){
+				
+			}
+		}(characters[i]), "playField") 
 		//TODO: figure out how to do this correctly 'cause this ain't it
 	}
 }
