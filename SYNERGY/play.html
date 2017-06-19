@@ -54,7 +54,7 @@ var characters = [new Character("1/1","1","11"), new Character("1/2","1","12"), 
 var team1 = [];
 var team2 = [];
 
-function add(type, clickEvent, location) { //stolen from https://stackoverflow.com/questions/7707074/creating-dynamic-button-with-click-event-in-javascript I have no regrets
+function add(type, value, clickEvent, location) { //stolen from https://stackoverflow.com/questions/7707074/creating-dynamic-button-with-click-event-in-javascript I have no regrets
   //Create an input type dynamically.   
   var element = document.createElement("input");
   //Assign different attributes to the element. 
@@ -78,7 +78,7 @@ function setup(){
 function setupTeam1(){
 	var temp = [];
 	for (var i = 0; i < characters.length; i++){ //TODO: Fix this
-		add("button", function(){console.log("BEEP!");}, "playField")
+		add("button", i, function(){console.log(i);}, "playField")
 	}
 }
 
