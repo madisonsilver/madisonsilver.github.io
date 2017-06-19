@@ -59,7 +59,7 @@ function add(type, value, clickEvent, location) { //stolen from https://stackove
   var element = document.createElement("input");
   //Assign different attributes to the element. 
   element.type = type;
-  element.value = type;
+  element.value = value;
   element.name = type;
   element.onclick = clickEvent; //TODO: Replace with addEventListener?
 
