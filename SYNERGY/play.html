@@ -1,53 +1,14 @@
+<!--TODO: leave oherent comments-->
 <html>
 <head>
 <script>
 class Character {
 	constructor(title, group, identifier) {
-		this.title = title;
-		this.group = group;
-		this.identifier = identifier;
+		this.title = title; //epithet
+		this.group = group; //name
+		this.identifier = identifier; //TODO: Figure out what this is
 	}
 }
-
-function shuffle(array) { //TODO: I'm pretty sure I don't need this?  Why did I put it in?
-    var currentIndex = array.length, temporaryValue, randomIndex;
-
-    // While there remain elements to shuffle...
-    while (0 !== currentIndex) {
-
-        // Pick a remaining element...
-        randomIndex = Math.floor(Math.random() * currentIndex);
-        currentIndex -= 1;
-
-        // And swap it with the current element.
-        temporaryValue = array[currentIndex];
-        array[currentIndex] = array[randomIndex];
-        array[randomIndex] = temporaryValue;
-    }
-
-    return array;
-}
-
-class Deck {
-    constructor(cards = []) {
-        this.cards = cards;
-    }
-
-    shuffle() {
-        this.cards = shuffle(this.cards);
-    }
-
-    reveal(index = 0) {
-        return this.cards[index];
-    }
-
-    remove(index = 0) {
-        a = this.reveal(index);
-        this.cards.splice(index, 1);
-        return a;
-    }
-
-} //TODO: I'm pretty sure I don't need this?  Why did I put it in?
 
 var log = "";
 var characters = [new Character("1/1","1","11"), new Character("1/2","1","12"), new Character("2/1","2","21"), new Character("2/2","2","22")];
@@ -77,7 +38,7 @@ function setup(){
 }
 function setupTeam1(){
 	for (var i = 0; i < characters.length; i++){
-		add("button", i, function(a){return function(){console.log(a);}}(i), "playField") 
+		add("button", characters[i].title, function(a){return function(){console.log(a.group);}}(characters[i]), "playField") 
 		//TODO: figure out how to do this correctly 'cause this ain't it
 	}
 }
