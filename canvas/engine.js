@@ -1,4 +1,7 @@
-var canvas = document.getElementById('playField');
+var canvas;
+function findCanvas(){
+    canvas = document.getElementById('playField');
+}
 function drawFrame(){
 if (canvas.getContext) {
     var ctx = canvas.getContext('2d');
