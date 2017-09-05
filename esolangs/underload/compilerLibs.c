@@ -1,17 +1,6 @@
 #include<stdlib.h>
 #include<iostream>
 
-void output(bool i){
-    static unsigned char character=0;
-    static char len=0;
-    character = (character<<1)+i;
-    len+=1;
-    if (len==8){
-        len=0;
-        std::cout<<character;
-        character=0;
-    }
-}
 
 template<typename T>
 class stackBody{
@@ -42,6 +31,7 @@ class stack{
 };
 
 class codeBody{
+    public:
     char type;
     union{
         void (*orig)(void);
@@ -52,7 +42,7 @@ class codeBody{
         };
     };
 
-    public:
+    
     static codeBody* concat(codeBody* obj1, codeBody* obj2){
         codeBody* out = (codeBody*)malloc(sizeof(codeBody));
         out->type=2;
@@ -86,13 +76,52 @@ class codeBody{
 
 stack<codeBody> codestack;
 
+void output(bool i){
+    static unsigned char character=0;
+    static char len=0;
+    character = (character<<1)+i;
+    len+=1;
+    if (len==8){
+        len=0;
+        std::cout<<character;
+        character=0;
+    }
+}
+
 void dup(){
     codeBody* temp=codestack.pop();
     codestack.push(temp);
     codestack.push(codeBody::copy(temp));
 }
 
+void pop(){
+    free(codestack.pop());
+}
 
+void wrap(){
+    codestack.push(codeBody::wrap(codestack.pop()));//TODO: create more effecient method for this
+}
+
+void concat(){
+    codeBody* obj1=codestack.pop();
+    codeBody* obj2=codestack.pop();
+    codestack.push(codeBody::concat(obj2,obj1));
+}
+
+void exec(){
+    codeBody* obj=codestack.pop();
+    if (obj->type==0){
+        obj->orig();
+    } else if (obj->type==1){
+        codestack.push(obj->wrapped);
+    } else if (obj->type==2){
+        codestack.push(obj->orig1);
+        exec();
+        codestack.push(obj->orig2);
+        exec();
+    }
+    free(obj);
+};
 
 int main(){
 
