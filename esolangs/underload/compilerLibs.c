@@ -11,9 +11,10 @@ class stackBody{
 
 template<typename T>
 class stack{
+    public:
     stackBody<T>* body;
 
-    public:
+    
     T* pop(){
         T* val = body->value;
         stackBody<T>* oldBody = body;
@@ -72,6 +73,13 @@ class codeBody{
             out->orig2=copy(obj->orig2);
         }
     }
+
+    static codeBody* makeCode(void (*func)(void)){
+        codeBody* out = (codeBody*)malloc(sizeof(codeBody));
+        out->type==0;
+        out->orig==func;
+        return out;
+    }
 };
 
 stack<codeBody> codestack;
@@ -123,6 +131,32 @@ void exec(){
     free(obj);
 };
 
-int main(){
+void h(){
+    output(0);
+    output(1);
+    output(1);
+    output(0);
+    output(1);
+    output(0);
+    output(0);
+    output(0);
+}
 
+void i(){
+    output(0);
+    output(1);
+    output(1);
+    output(0);
+    output(1);
+    output(0);
+    output(0);
+    output(1);
+}
+
+int main(){
+    codestack.body=NULL;
+    codestack.push(codeBody::makeCode(h));
+    codestack.push(codeBody::makeCode(i));
+    concat();
+    exec();
 }
