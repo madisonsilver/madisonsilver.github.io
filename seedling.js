@@ -10,7 +10,7 @@ import {
   Client,
   ITEMS_HANDLING_FLAGS,
   SERVER_PACKET_TYPE,
-} from "https://unpkg.com/archipelago.js@1.0.2/dist/archipelago.min.js";
+} from "https://unpkg.com/archipelago.js@1.0.0/dist/archipelago.js";
 
 // client connection
 // Create a new Archipelago client
