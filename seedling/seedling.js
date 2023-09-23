@@ -85,7 +85,7 @@ function killPlayer() {
   document.getElementById("Seedling").killPlayer();
 }
 
-function reloadItems() {
+window.reloadItems = function() {
   let item_ids = [];
   console.log(recieved_items);
   for (let net_item of recieved_items) {
@@ -99,17 +99,10 @@ function reloadItems() {
 }
 
 //AS -> JS
-let returnHome = 0;
 let deaths = 0;
 window.playerDied = function () {
   deaths += 1;
   console.log(`deaths: ${deaths}`)
-  if (returnHome) {
-    document.getElementById("text_log").innerText =
-      "player died, returning home";
-    returnHome = 0;
-    return 1;
-  }
   if (
     client.data.slotData["deathlink"] &&
     deaths >= client.data.slotData["deathlink_amnesty"]
@@ -126,7 +119,6 @@ window.playerDied = function () {
     });
   }
   document.getElementById("text_log").innerText = "player died";
-  return 0;
 };
 
 window.collectLocation = function (loc_name) {
@@ -176,16 +168,6 @@ window.getSealCount = function () {
 
 //Page UI
 
-function returnToSpawn() {
-  returnHome = 1;
-  killPlayer();
-}
-
-document.getElementById("death_button").addEventListener("click", killPlayer);
-document
-  .getElementById("return_to_spawn")
-  .addEventListener("click", returnToSpawn);
 document
   .getElementById("connect_to_server")
   .addEventListener("click", connectToServer);
-document.getElementById("reload_items").addEventListener("click", reloadItems);
